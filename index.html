@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>vuejs3</title>
+   <link rel="stylesheet" href="assets/style.css"/>
+
+</head>
+<body>
+    <div id="app">
+
+        <!--section panier-->
+        <div class="cart">
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Votre commande</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{nbrProduct}}</td>
+                    </tr>
+                    <tr>
+                        <td>Code Promo</td>
+                        <td class="code-promo">
+                            <input v-model="promo" placeholder="Ajouter un code promo"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Total à payer</td>
+                        <td>
+                            <div v-if="promo === 'royale'">
+                                (-3€) 
+                                <span class="sale">{{totalPrice}}</span>
+                                {{totalPrice - 3}}
+                            </div>
+                            <div v-else>
+                                {{totalPrice}} €
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="product-section">
+            <div class="product-image">
+                <img v-bind:src="image"/>
+            </div>
+            <div class="product-description">
+                <h1>{{name}}</h1>
+                <p class="indispo" v-show="notAvailable">Momentanément indisponible</p>
+                <p v-if="sale">
+                    <span class="sale">{{price}}</span>
+                    <span class="new-price">{{price -5}}</span>
+                </p>
+                <p v-else>
+                    <span class="price">{{price}}</span>
+                </p>
+            </div>
+        </div>
+   
+        <div class="ingredients">
+            <strong>Ingrédients:</strong>
+            <div>
+                <span v-for="(ingredient, index) in ingredients" :key="index">{{ingredient + ","}}</span>
+            </div>
+            <br>
+        </div>
+        <div class="sauces">
+            <srong>Sauces au choix</srong>
+            <ul>
+                <li v-for="sauce in sauces" :key="sauce.id" @mouseover="updateImage(sauce.image)">{{sauce.type}}</li>
+            </ul>
+        </div>
+
+        <div class="valeurs">
+            <strong>Valeurs nutritionnelles pour 100 grammes</strong>
+            <ul>
+                <li v-for="(value, name, index) in energy" :key="index">{{name}} : {{value}}</li>
+            </ul>
+        </div>
+        <button @click="addProduct()">Ajouter à ma commande</button>
+    </div>
+
+ <script src="https://unpkg.com/vue@next"></script>
+ <script src="src/main.js"></script>
+ <script>
+     const mountApp = app.mount("#app");
+ </script>
+</body>
+</html>

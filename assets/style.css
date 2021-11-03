@@ -1,0 +1,28 @@
+body{
+    margin: 0;
+    padding: 0;  
+}
+img{
+    width: 300px;
+    height: 200px;
+}
+.sale{
+    color: gray;
+    text-decoration: line-through;
+}
+.new-price{
+    margin-left: 5px;
+    font-weight: bold;
+    font-size: 20px;
+    color: red;
+}
+.price{
+    color: red;
+    background-color: gainsboro;
+    font-size: 20px;
+}
+.indispo{
+    font-weight: bold;
+    font-size: 20px;
+
+}
