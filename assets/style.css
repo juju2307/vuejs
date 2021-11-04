@@ -6,6 +6,10 @@ img{
     width: 300px;
     height: 200px;
 }
+.img-best-seller{
+    width: 50px;
+    height: 50px;
+}
 .sale{
     color: gray;
     text-decoration: line-through;
@@ -25,4 +29,64 @@ img{
     font-weight: bold;
     font-size: 20px;
 
+}
+button{
+    background-color: #d0021b;
+    border-color: #d0021b;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Oswald", sans-serif !important;
+    line-height: 20px;
+    margin: 20px auto;
+    max-width: initial;
+    min-width: initial;
+    padding: 12px;
+    text-align: center;
+    text-transform: uppercase !important;
+    width: 350px;
+}
+button:hover{
+    background-color: #b6132c;
+
+}
+.notActiveBtn {
+    background-color: #f6f6f6;
+    border-color: #f6f6f6;
+    color: gray;
+    cursor: not-allowed;
+    text-decoration: line-through;
+
+}
+.notActiveBtn:hover{
+    background-color: #f6f6f6;
+
+}
+.sauces li{
+    list-style: none;
+    padding: 5px 15px;
+    margin: 10px 0px;
+    width: fit-content;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+}
+.sauces li:hover{
+    color: black;
+}
+/*Transition*/
+.bounce-enter-active {
+    animation: bounce-in 0.5s;
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+    
+    }
+    50% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
